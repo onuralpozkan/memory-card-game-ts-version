@@ -1,0 +1,99 @@
+.start-screen {
+  min-height: 100vh;
+  background-color: #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  &__board-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+  }
+  &__board-wrapper {
+    display: flex;
+    max-width: 496px;
+    justify-content: center;
+    flex-flow: row wrap;
+  }
+  &__title {
+    margin-bottom: 1rem;
+    font-weight: 600;
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 1rem;
+  }
+  &__panel {
+    width: 400px;
+    height: 180px;
+    overflow: hidden;
+    height: 160px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    &-config,
+    &-start {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+
+      button {
+        svg {
+          &:hover {
+            fill: rgb(26, 151, 209);
+          }
+        }
+      }
+    }
+
+    &-options {
+      padding: 1rem;
+      width: 100%;
+      transform: translateX(-100%);
+      display: none;
+      transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      display: flex;
+      flex-flow: column;
+      justify-content: space-between;
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      border-radius: 8px;
+      background: #eee;
+      z-index: 1;
+      .title {
+        font-weight: 600;
+        text-align: center;
+        padding: 1rem;
+      }
+
+      .pattern-selection {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .close-options {
+        display: flex;
+        justify-content: center;
+        button {
+          padding: 0.5rem;
+          width: 40px;
+          display: flex;
+          justify-content: center;
+          border-radius: 8px;
+          &:hover {
+            background-color: #ddd;
+          }
+        }
+      }
+    }
+    &-options--isOpen {
+      transform: translateX(0%);
+    }
+  }
+}

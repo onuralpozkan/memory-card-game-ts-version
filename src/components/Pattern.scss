@@ -1,0 +1,14 @@
+.pattern-label {
+  cursor: pointer;
+  height: fit-content;
+  display: inline-block;
+  img {
+    max-width: 30px;
+    margin-right: 10px;
+  }
+  &.selected {
+    img {
+      box-shadow: 0px 0px 6px 2px rgb(2, 204, 255);
+    }
+  }
+}

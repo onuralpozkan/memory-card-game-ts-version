@@ -1,0 +1,24 @@
+.game-configs {
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 1rem;
+  &__pattern {
+    img {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      margin-left: auto;
+    }
+  }
+  &__difficulty {
+    span {
+      margin-left: auto;
+    }
+  }
+  &__pattern,
+  &__difficulty {
+    height: 40px;
+    display: flex;
+    align-items: center;
+  }
+}

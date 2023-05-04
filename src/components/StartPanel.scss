@@ -1,0 +1,33 @@
+.start-panel {
+  background-color: aqua;
+  position: relative;
+  overflow: hidden;
+
+  &__buttons {
+    display: flex;
+    background-color: bisque;
+  }
+
+  &__options {
+    background-color: burlywood;
+    height: 150px;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transform: translateX(-100%);
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    &--isOpen {
+      transform: translateX(0%);
+    }
+
+    .close-options {
+      button {
+        padding: .5rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+.game-board {
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+  }
+  &__wrapper {
+    display: flex;
+    max-width: 496px;
+    justify-content: center;
+    flex-flow: row wrap;
+  }
+}
