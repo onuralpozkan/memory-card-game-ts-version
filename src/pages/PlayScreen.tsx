@@ -35,7 +35,7 @@ const PlayScreen = () => {
 
   useEffect(() => {
     const cardCount = Math.min(Math.pow(2, Number(store.difficulty) + 2), 24)
-    setCards(getShuffledArr(cardDatas).slice(0, cardCount));
+    setCards(getShuffledArr(cardDatas.slice(0, cardCount)));
     setTime(60 * store.difficulty);
   }, [store.difficulty]);
 
