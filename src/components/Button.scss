@@ -7,17 +7,27 @@
   align-items: center;
   flex-flow: column nowrap;
   font-size: 16px;
-  border: 1px solid #000;
   width: 100px;
   height: 100px;
-
-  &--large {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  svg {
+    margin-bottom: 0.5rem;
+  }
+  &:hover {
+    background-color: rgba(0, 204, 255, 0.877);
+    background-color: rgba(197, 197, 197, 0.747);
+  }
+  &--large { 
     width: 150px;
     height: 150px;
   }
   &--small {
     width: 50px;
     height: 50px;
+    padding: 0;
+    svg {
+      margin-bottom: 0;
+    }
   }
   &--block {
     width: 100%;

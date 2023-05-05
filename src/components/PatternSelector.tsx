@@ -10,7 +10,7 @@ const PatternSelector: React.FC = () => {
   }
   return (
     <div className="pattern-selection">
-      <h1 className="pattern-selection__title">Select Pattern: </h1>
+      <label className="pattern-selection__title">Select Pattern: </label>
       <div className="pattern-selection__patterns">
         {store.patternsData.map((pattern) => (
           <Pattern

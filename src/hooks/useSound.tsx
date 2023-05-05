@@ -4,16 +4,18 @@ import clickSound from "../assets/sound/whoosh-6316.mp3";
 import notMatchedSound from "../assets/sound/punch-140236.mp3";
 import successSound from "../assets/sound/crowd-cheer-ii-6263.mp3";
 import failSound from "../assets/sound/suspend-sound-113941.mp3";
+import { useStore } from "../store";
 interface Functions {
   playSound: (arg: string) => void;
 }
 
 export const useSound = (): Functions => {
+  const { soundEffects } = useStore();
   useEffect(() => {
-    const aEL: HTMLAudioElement = document.createElement("audio");
-    aEL.id = "game-sound";
+    const audioEl: HTMLAudioElement = document.createElement("audio");
+    audioEl.id = "game-sound";
     if (!document.getElementById("game-sound")) {
-      document.querySelector("body")?.append(aEL);
+      document.getElementById("root")?.append(audioEl);
     }
   }, []);
 
@@ -40,7 +42,9 @@ export const useSound = (): Functions => {
       await audioEl.pause();
       audioEl.currentTime = 0;
     } else {
-      await audioEl?.play();
+      if (soundEffects) {
+        await audioEl?.play();
+      }
     }
   }
 

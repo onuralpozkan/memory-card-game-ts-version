@@ -15,7 +15,7 @@ const DifficultySlider: React.FC<DifficultySliderProps> = ({
   return (
     <div className="difficulty-slider">
       <label htmlFor="difficulty">
-        Choose Difficulty
+        Choose Difficulty:
         <input
           type="range"
           name="difficulty"

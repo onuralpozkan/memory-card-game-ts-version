@@ -5,21 +5,17 @@ import { Pattern } from "../types/pattern";
 
 interface IState {
   isCorrect: boolean;
-  cardsHasMatched: () => void;
-  difficulty: 1 | 2 | 3 | number;
-  changeDifficulty: (arg: number) => void;
+  soundEffects: boolean;
   selectedPatternSrc: string;
-  changePattern: (arg: string) => void;
+  difficulty: 1 | 2 | 3 | number;
+  gameStatus: string;
   patternsData: Pattern[];
-  gameStatus: Status;
-  setGameStatus: (arg: Status) => void;
+  cardsHasMatched: () => void;
+  changeDifficulty: (arg: number) => void;
+  changePattern: (arg: string) => void;
+  setGameStatus: (arg: string) => void;
+  toggleSoundEffects: () => void;
 }
-
-type Status =
-  | GameStatus.FAIL
-  | GameStatus.PRE_START
-  | GameStatus.SUCCESS
-  | GameStatus.START;
 
 export const useStore = create<IState>((set) => ({
   gameStatus: GameStatus.PRE_START,
@@ -27,6 +23,7 @@ export const useStore = create<IState>((set) => ({
   difficulty: 2,
   selectedPatternSrc: patternsData[1].src,
   patternsData,
+  soundEffects: true,
   cardsHasMatched: () => set((state) => ({ ...state, isCorrect: true })),
   changeDifficulty(level: number) {
     set((state) => ({ ...state, difficulty: level }));
@@ -36,5 +33,8 @@ export const useStore = create<IState>((set) => ({
   },
   setGameStatus(status) {
     set((state) => ({ ...state, gameStatus: status }));
+  },
+  toggleSoundEffects() {
+    set((state) => ({ ...state, soundEffects: !state.soundEffects }));
   },
 }));

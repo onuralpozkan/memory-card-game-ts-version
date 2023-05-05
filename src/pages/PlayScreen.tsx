@@ -34,11 +34,8 @@ const PlayScreen = () => {
   }, []);
 
   useEffect(() => {
-    setCards(
-      getShuffledArr(
-        cardDatas.slice(0, Math.pow(2, Number(store.difficulty) + 1))
-      )
-    );
+    const cardCount = Math.min(Math.pow(2, Number(store.difficulty) + 2), 24)
+    setCards(getShuffledArr(cardDatas).slice(0, cardCount));
     setTime(60 * store.difficulty);
   }, [store.difficulty]);
 
@@ -62,11 +59,13 @@ const PlayScreen = () => {
       <div className="game-board__header">
         <Button
           iconType={GameIcons.BACK}
-          label="Return"
+          label=""
           onClick={returnMainMenu}
-          size="normal"
+          size="small"
         />
-        <div className="time">Remaining Time: {time} sn</div>
+        <div className="time">
+          Remaining Time: <b>{time}</b> sn
+        </div>
       </div>
       <div className="game-board__wrapper">{cardList}</div>
     </div>

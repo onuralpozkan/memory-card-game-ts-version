@@ -4,6 +4,9 @@ import { GameIcons, GameSounds, GameStatus } from "../enums/enums";
 import { useSound } from "../hooks/useSound";
 import { useGame } from "../hooks/useGame";
 import Button from "../components/Button";
+import ResultText from "../components/ResultText";
+import Confetti from "../components/Confetti";
+import "./ResultScreen.scss";
 
 const ResultScreen: React.FC = () => {
   const store = useStore();
@@ -19,24 +22,27 @@ const ResultScreen: React.FC = () => {
     return () => playSound(GameSounds.STOP);
   }, []);
 
-  const result =
-    store.gameStatus === GameStatus.SUCCESS ? "BAŞARILI" : "GAME IS OVER";
   return (
-    <div className="result-screen">
-      {result}
-      <Button
-        iconType={GameIcons.BACK}
-        label="Return to Main Menu"
-        size="large"
-        onClick={returnMainMenu}
-      />
-      <Button
-        iconType={GameIcons.DONE}
-        label="Restart Game"
-        size="large"
-        onClick={startGame}
-      />
-    </div>
+    <>
+      {GameStatus.SUCCESS === store.gameStatus && <Confetti />}
+      <div className="result-screen ">
+        <ResultText isSuccess={GameStatus.SUCCESS === store.gameStatus} />
+        <div className="result-screen__buttons">
+          <Button
+            iconType={GameIcons.BACK}
+            label="Return"
+            size="large"
+            onClick={returnMainMenu}
+          />
+          <Button
+            iconType={GameIcons.DONE}
+            label="Restart"
+            size="large"
+            onClick={startGame}
+          />
+        </div>
+      </div>
+    </>
   );
 };
 

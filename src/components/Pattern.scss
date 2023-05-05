@@ -3,8 +3,9 @@
   height: fit-content;
   display: inline-block;
   img {
-    max-width: 30px;
+    max-width: 24px;
     margin-right: 10px;
+    border-radius: 2px;
   }
   &.selected {
     img {

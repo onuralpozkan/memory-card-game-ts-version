@@ -1,0 +1,15 @@
+.result-screen {
+  height: 50vh;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  align-items: center;
+  &__buttons {
+    display: flex;
+    border-radius: var(--radius);
+    background-color: var(--panel-bg-color);
+    overflow: hidden;
+    width: 300px;
+    z-index: 1001;
+  }
+}

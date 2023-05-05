@@ -44,18 +44,27 @@ const StartPanel: React.FC = () => {
         />
       </div>
       <div className="start-panel__options" ref={optionsPanelRef}>
-        <DifficultySlider
-          min="1"
-          max="3"
-          onChange={selectDifficulty}
-          value={store.difficulty.toString()}
-        />
-        <PatternSelector />
+        <div className="start-panel__options-wrapper">
+          <DifficultySlider
+            min="1"
+            max="3"
+            onChange={selectDifficulty}
+            value={store.difficulty.toString()}
+          />
+          <PatternSelector />
+        </div>
 
         <div className="close-options">
           <Button
             iconType={GameIcons.DONE}
             onClick={closeConfig}
+            size="block"
+          />
+          <Button
+            iconType={
+              store.soundEffects ? GameIcons.SOUND_ON : GameIcons.SOUND_OFF
+            }
+            onClick={() => store.toggleSoundEffects()}
             size="block"
           />
         </div>

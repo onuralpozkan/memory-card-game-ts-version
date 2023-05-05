@@ -16,6 +16,8 @@ export enum GameIcons {
   CONFIG = "config",
   DONE = "done",
   BACK = "back",
+  SOUND_ON = 'sound-on',
+  SOUND_OFF = 'sound-off'
 }
 
 export enum GameSounds {

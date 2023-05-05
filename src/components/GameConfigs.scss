@@ -2,6 +2,10 @@
   display: flex;
   flex-flow: column nowrap;
   padding: 1rem;
+  width: 300px;
+  margin-top: 1rem;
+  background-color: var(--panel-bg-color);
+  border-radius: var(--radius);
   &__pattern {
     img {
       width: 30px;
